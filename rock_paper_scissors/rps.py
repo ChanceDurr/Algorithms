@@ -3,7 +3,16 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  rps = ['rock', 'paper', 'scissors'] # The three options
+  num_games = 3 ** n # How many game will be played
+  games = [[0] * n for x in range(num_games)] # Create list of lists with 0 place holders for each player
+  dividers = [3 ** x for x in range(0, n + 1)]
+  for i in range(0, len(games)):
+    for j in range(1, len(games[0]) + 1):
+      games[i][-j] = rps[(i // dividers[j - 1]) % 3]
+
+    
+  return games
 
 
 if __name__ == "__main__":
